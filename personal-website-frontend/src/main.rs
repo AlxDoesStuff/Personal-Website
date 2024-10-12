@@ -1,23 +1,28 @@
 use yew::prelude::*;
+use components::atoms::tab_button_component::TabButtonComponent;
+
+mod components;
+
+
+//Tab Enum
+#[derive(PartialEq)]
+pub enum Tabs {
+    About,
+    Socials,
+    Stuff
+}
+
 
 #[function_component]
 fn App() -> Html {
-    let counter = use_state(|| 0);
-    let onclick = {
-        let counter = counter.clone();
-        move |_| {
-            let value = *counter + 1;
-            counter.set(value);
-        }
-    };
-
-    html! {
-        <div>
-            <button {onclick}>{ "+1" }</button>
-            <p>{ *counter }</p>
-        </div>
+    html! { 
+    <>
+        <TabButtonComponent button_text = {String::from("About")} button_tab = {Tabs::About} />
+    </>
     }
 }
+
 fn main() {
+    let currentTab: Tabs;
     yew::Renderer::<App>::new().render();
 }
