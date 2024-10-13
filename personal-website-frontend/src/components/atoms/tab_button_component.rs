@@ -20,4 +20,4 @@ pub fn TabButtonComponent(props: &Props) -> Html {
         handle_onclick_cloned.emit(button_tab_cloned.clone()); //Why am I double cloning here? I do not understand
     }); //Button Click Logic
     html! { <div><button type="tab_button" onclick={onclick}>{props.button_text.clone()}</button> </div> } //Button HTML build
-}   
+} 

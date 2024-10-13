@@ -1,0 +1,3 @@
+pub mod socials_tab_content_component;
+pub mod stuff_tab_content_component;
+pub mod about_tab_content_component;
