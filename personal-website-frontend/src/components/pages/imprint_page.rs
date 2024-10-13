@@ -5,7 +5,7 @@ use crate::Tabs;
 
 
 #[function_component]
-pub fn CatPage() -> Html {
+pub fn ImprintPage() -> Html {
     //Current Tab
     let tab_state = use_state(||Tabs::About);
     let cloned_tab_state = tab_state.clone();
@@ -17,7 +17,7 @@ pub fn CatPage() -> Html {
     html! {
     <div>
         <TabBarComponent handle_changetab = {tab_changed.clone()}/> //Tab Bar
-        <>{"Cat page!!!1"}</>
+        <>{"Imprint page!!!1"}</>
     </div>
     }
 }

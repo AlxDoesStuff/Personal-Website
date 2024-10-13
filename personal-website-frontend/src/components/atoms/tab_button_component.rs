@@ -1,6 +1,6 @@
 use yew::prelude::*;
 use yew::Properties;
-use super::super::super::Tabs;
+use crate::Tabs;
 
 //Tab Button Props
 #[derive(Properties, PartialEq)]

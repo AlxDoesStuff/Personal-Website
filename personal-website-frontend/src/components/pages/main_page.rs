@@ -3,8 +3,7 @@ use crate::components::molecules::tab_bar_component::TabBarComponent;
 use crate::components::organisms::about_tab_content_component::AboutTabContentComponent;
 use crate::components::organisms::socials_tab_content_component::SocialsTabContentComponent;
 use crate::components::organisms::stuff_tab_content_component::StuffTabContentComponent;
-use super::super::super::Tabs;
-
+use crate::Tabs;
 
 #[function_component]
 pub fn MainPage() -> Html {
@@ -33,7 +32,7 @@ pub fn MainPage() -> Html {
     html! {
     <div>
         <TabBarComponent handle_changetab = {tab_changed.clone()}/> //Tab Bar
-        <div>{show_current_tab()}</div>
+        <div>{show_current_tab()}</div> //Tab Content
     </div>
     }
 }

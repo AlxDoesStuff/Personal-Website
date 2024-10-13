@@ -1,6 +1,6 @@
 use yew::prelude::*;
 use yew::Properties;
-use super::super::super::Tabs;
+use crate::Tabs;
 use crate::components::atoms::tab_button_component::TabButtonComponent;
 
 #[derive(Properties, PartialEq)]
