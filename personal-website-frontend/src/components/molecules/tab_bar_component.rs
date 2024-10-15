@@ -12,8 +12,8 @@ pub struct Props {
 pub fn TabBarComponent(props: &Props) -> Html {
     let handle_changetab_cloned = props.handle_changetab.clone();
     //Pass up Tab Button Clicks
-    let tab_button_clicked = Callback::from(move |tab|{
-        handle_changetab_cloned.emit(tab);
+    let tab_button_clicked = Callback::from(move |tab_clicked|{
+        handle_changetab_cloned.emit(tab_clicked);
     });
     html! {
     <div>

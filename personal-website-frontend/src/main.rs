@@ -20,6 +20,8 @@ pub enum Tabs {
 pub enum Route {
     #[at("/")]
     Home,
+    #[at("/*tabstring")]
+    HomeTab { tabstring: String },
     #[at("/imprint")]
     Imprint,
     #[at("/cats")]
@@ -32,7 +34,15 @@ pub enum Route {
 //Route Switcher
 fn switch(routes: Route) -> Html {
     match routes {
-        Route::Home  => html! {<MainPage/> },
+        Route::Home => html! {<MainPage tab = {Tabs::About}/>},
+        Route::HomeTab {tabstring}  =>  html! {
+            match &*tabstring.to_lowercase() {
+                "about" => html! {<MainPage tab = {Tabs::About}/>},
+                "socials" => html! {<MainPage tab = {Tabs::Socials}/>},
+                "stuff" => html! {<MainPage tab = {Tabs::Stuff}/>},
+                _ => html! {<MainPage tab = {Tabs::About}/>},
+            }
+        },
         Route::Imprint => html! {<ImprintPage/> },
         Route::CatPage => html! {<CatPage/> },
         Route::NotFound => html! {<div><h1>{"AlxDoesStuff"}</h1><h2>{"404 Not Found"}</h2></div>},
