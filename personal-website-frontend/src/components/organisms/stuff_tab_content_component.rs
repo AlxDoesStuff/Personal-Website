@@ -5,8 +5,13 @@ use crate::components::atoms::cat_link_component::CatLinkComponent;
 pub fn StuffTabContentComponent() -> Html {
     html! {
     <div>
-        <h2>{"Stuff"}</h2>
-        <CatLinkComponent/>
+        <div>
+            <h2>{"Stuff"}</h2>
+        </div>
+        <div>
+            <p>{"Nothing here yet..."}</p>
+            <CatLinkComponent/>
+        </div>
     </div>
     }
 }

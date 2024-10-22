@@ -5,8 +5,8 @@ use crate::Route;
 #[function_component(CatLinkComponent)]
 pub fn cat_link_component() -> Html {
     html! {
-        <>
-        <Link<Route> to={Route::CatPage}>{ "Daily Cat!!!1" }</Link<Route>>
-        </>
+        <div>
+            <Link<Route> to={Route::CatPage}>{ "Daily Cat!" }</Link<Route>>
+        </div>
     }
 }

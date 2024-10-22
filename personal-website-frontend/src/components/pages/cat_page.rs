@@ -1,5 +1,6 @@
 use yew::prelude::*;
 use yew_router::prelude::*;
+use crate::components::atoms::imprint_link_component::ImprintLinkComponent;
 use crate::components::molecules::tab_bar_component::TabBarComponent;
 use crate::Route;
 use crate::Tabs;
@@ -22,10 +23,11 @@ pub fn CatPage() -> Html {
     });
     //Html
     html! {
-    <div>
-        <TabBarComponent handle_changetab = {tab_changed.clone()}/> //Tab Bar
-        <>{"Cat page!!!1"}</>
-    </div>
+        <div>
+            <TabBarComponent handle_changetab = {tab_changed.clone()}/> //Tab Bar
+            <p>{"Cat page!!!1"}</p>
+            <ImprintLinkComponent/>
+        </div>
     }
 }
 

@@ -22,10 +22,10 @@ pub fn ImprintPage() -> Html {
     });
     //Html
     html! {
-    <div>
-        <TabBarComponent handle_changetab = {tab_changed.clone()}/> //Tab Bar
-        <>{"Imprint page!!!1"}</>
-    </div>
+        <div>
+            <TabBarComponent handle_changetab = {tab_changed.clone()}/> //Tab Bar
+            <p>{"Imprint page!!!1"}</p>
+        </div>
     }
 }
 

@@ -1,4 +1,5 @@
 use yew::prelude::*;
+use stylist::yew::styled_component;
 use components::pages::main_page::MainPage;
 use components::pages::imprint_page::ImprintPage;
 use components::pages::cat_page::CatPage;
@@ -33,8 +34,10 @@ pub enum Route {
 
 //Route Switcher
 fn switch(routes: Route) -> Html {
+
+
     match routes {
-        Route::Home => html! {<MainPage tab = {Tabs::About}/>},
+        Route::Home => html! {<MainPage tab = {Tabs::About}/>}, 
         Route::HomeTab {tabstring}  =>  html! {
             match &*tabstring.to_lowercase() {
                 "about" => html! {<MainPage tab = {Tabs::About}/>},
@@ -49,8 +52,9 @@ fn switch(routes: Route) -> Html {
     }
 }
 
-#[function_component(Main)]
+#[styled_component(Main)]
 fn app() -> Html {
+    //Html
     html! {
         <BrowserRouter>
             <Switch<Route> render={switch} /> // <- must be child of <BrowserRouter>

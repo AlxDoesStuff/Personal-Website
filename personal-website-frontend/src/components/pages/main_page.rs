@@ -1,3 +1,5 @@
+use stylist::yew::styled_component;
+use stylist::style;
 use yew::prelude::*;
 use yew_router::prelude::*;
 use crate::components::molecules::tab_bar_component::TabBarComponent;
@@ -7,14 +9,31 @@ use crate::components::organisms::stuff_tab_content_component::StuffTabContentCo
 use crate::Tabs;
 use crate::Route;
 
+
 #[derive(Properties, PartialEq)]
 pub struct Props {
     pub tab: Tabs, //Click event handler for outside the component
 }
 
 
-#[function_component]
+#[styled_component]
 pub fn MainPage(props: &Props) -> Html {
+    //Wrapper properties
+    let page_style = style!(
+        r#"
+            height: 100svh;
+            width: 100svw;
+            font-size: 28px;
+        "#
+    ).unwrap();
+    let horizontal_aligner_style = style!(
+        r#"
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            flex-direction: row;
+        "#
+    ).unwrap(); 
     //Navigator
     let navigator = use_navigator().unwrap();
     //Tab given by props
@@ -48,10 +67,12 @@ pub fn MainPage(props: &Props) -> Html {
     };
     //Html
     html! {
-    <div>
-        <TabBarComponent handle_changetab = {tab_changed.clone()}/> //Tab Bar
-        <div>{show_current_tab()}</div> //Tab Content
-    </div>
+        <div class = {page_style}>
+            <div class = {horizontal_aligner_style.clone()}>
+            <TabBarComponent handle_changetab = {tab_changed.clone()}/> //Tab Bar
+            </div>
+            {show_current_tab()} //Tab Content
+        </div>
     }
 }
 
