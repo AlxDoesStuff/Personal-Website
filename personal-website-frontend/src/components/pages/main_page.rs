@@ -39,8 +39,11 @@ pub fn MainPage(props: &Props) -> Html {
     //Tab given by props
     let props_tab: &Tabs = &props.tab;
     //Current Tab
+    //WHAT THE FUCK
     let tab_state = use_state(||props_tab.to_owned());
-    let tab_state_cloned = tab_state.clone();
+    let tab_state_button = use_state(||props_tab.to_owned());
+    let tab_state_cloned: UseStateHandle<Tabs> = tab_state.clone();
+    let tab_state_button_cloned: UseStateHandle<Tabs> = tab_state_button.clone();
     //Tab changes
     let tab_changed = Callback::from(move |tab_clicked|{
         //Cursed Routing    
@@ -49,7 +52,9 @@ pub fn MainPage(props: &Props) -> Html {
             Tabs::Socials => { navigator.push(&Route::HomeTab { tabstring: "socials".to_string() });},
             Tabs::Stuff => { navigator.push(&Route::HomeTab { tabstring: "stuff".to_string() });},
         }
+        //???
         tab_state_cloned.set(tab_clicked);
+        tab_state_button_cloned.set(tab_clicked);
     });
     //Tab Content display 
     let show_current_tab = move || -> Html{
@@ -69,7 +74,7 @@ pub fn MainPage(props: &Props) -> Html {
     html! {
         <div class = {page_style}>
             <div class = {horizontal_aligner_style.clone()}>
-            <TabBarComponent handle_changetab = {tab_changed.clone()}/> //Tab Bar
+            <TabBarComponent handle_changetab = {tab_changed.clone()} current_tab = {*tab_state_button}/> //Tab Bar
             </div>
             {show_current_tab()} //Tab Content
         </div>

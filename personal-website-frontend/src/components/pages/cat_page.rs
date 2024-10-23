@@ -15,7 +15,7 @@ pub fn CatPage() -> Html {
     let tab_changed = Callback::from(move |tab_clicked|{
         tab_state_cloned.set(tab_clicked);
         //Cursed Routing    
-        match *tab_state_cloned {
+        match tab_clicked {
             Tabs::About => { navigator.push(&Route::HomeTab { tabstring: "about".to_string() });},
             Tabs::Socials => { navigator.push(&Route::HomeTab { tabstring: "socials".to_string() });},
             Tabs::Stuff => { navigator.push(&Route::HomeTab { tabstring: "stuff".to_string() });},
@@ -24,7 +24,7 @@ pub fn CatPage() -> Html {
     //Html
     html! {
         <div>
-            <TabBarComponent handle_changetab = {tab_changed.clone()}/> //Tab Bar
+            <TabBarComponent handle_changetab = {tab_changed.clone()} current_tab = {None}/> //Tab Bar
             <p>{"Cat page!!!1"}</p>
             <ImprintLinkComponent/>
         </div>

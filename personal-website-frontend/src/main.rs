@@ -9,7 +9,7 @@ mod components;
 
 
 //Tab Enum
-#[derive(PartialEq,Clone)]
+#[derive(PartialEq,Clone,Copy)]
 pub enum Tabs {
     About,
     Socials,
