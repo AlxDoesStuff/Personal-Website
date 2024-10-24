@@ -19,7 +19,7 @@ pub enum Tabs {
 //Page Routes
 #[derive(Clone, Routable, PartialEq)]
 pub enum Route {
-    #[at("/about")]
+    #[at("/")]
     Home,
     #[at("/*tabstring")]
     HomeTab { tabstring: String },

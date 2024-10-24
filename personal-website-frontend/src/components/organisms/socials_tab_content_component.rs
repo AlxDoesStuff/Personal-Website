@@ -8,8 +8,8 @@ pub fn SocialsTabContentComponent() -> Html {
     let socials_button_wrapper_style = style!(
         r#"
             height: 9rem;
-            padding-right: 3%;
-            padding-left: 3%;
+            padding-left: 2%;
+            padding-right: 2%;
             padding-top: 5%;
             gap: 2%;
             justify-content: space-evenly;
@@ -18,6 +18,13 @@ pub fn SocialsTabContentComponent() -> Html {
             flex-direction: row;
             img {
                 height: 100%;
+            }
+            a {
+                transition: all ease-in-out 0.15s;
+            }
+            a:hover {
+                transform:scale(1.25);
+
             }
         "#
     ).unwrap();

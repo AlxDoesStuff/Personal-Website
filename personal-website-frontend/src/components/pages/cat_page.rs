@@ -45,7 +45,7 @@ pub fn CatPage() -> Html {
             <TabBarComponent handle_changetab = {tab_changed.clone()} current_tab = {None}/> //Tab Bar
             </div>
             <div class = {horizontal_aligner_style.clone()}>
-            <p>{"Cat page!!!1"}</p>
+            <p>{"nothing here yet..."}</p>
             </div>
         </div>
     }
