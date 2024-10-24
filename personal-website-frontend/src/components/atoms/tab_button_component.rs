@@ -21,13 +21,16 @@ pub fn TabButtonComponent(props: &Props) -> Html {
     //Style
     let button_current_style = style!(
         r#"         
-            background-color: red;
+            background: transparent;
             border: none;
-            color: white;
+            background: linear-gradient(176deg, rgba(196,167,113,1) 40%, rgba(220,160,4,1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-align: center;
             text-decoration: none;
             display: inline-block;
             font-size: 100%;
+            font-family: 'Roboto Mono';
         "#
     ).unwrap();
     let button_normal_style = style!(
@@ -39,6 +42,8 @@ pub fn TabButtonComponent(props: &Props) -> Html {
             text-decoration: none;
             display: inline-block;
             font-size: 100%;
+            font-family: 'Roboto Mono';
+            cursor: pointer;
         "#
     ).unwrap();
     //Props

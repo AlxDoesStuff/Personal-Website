@@ -24,6 +24,7 @@ pub fn MainPage(props: &Props) -> Html {
             height: 100svh;
             width: 100svw;
             font-size: 28px;
+            font-family: 'Roboto Mono';
         "#
     ).unwrap();
     let horizontal_aligner_style = style!(

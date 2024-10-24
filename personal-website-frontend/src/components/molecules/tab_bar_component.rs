@@ -5,6 +5,7 @@ use yew::Properties;
 use crate::Tabs;
 use crate::components::atoms::tab_button_component::TabButtonComponent;
 use crate::components::atoms::imprint_link_component::ImprintLinkComponent;
+use crate::components::atoms::home_button_component::HomeButtonComponent;
 
 #[derive(Properties, PartialEq)]
 pub struct Props {
@@ -46,14 +47,18 @@ pub fn TabBarComponent(props: &Props) -> Html {
     ).unwrap();
     //Cloned handler
     let handle_changetab_cloned = props.handle_changetab.clone();
+    let handle_homebutton = props.handle_changetab.clone();
     let current_tab = props.current_tab.clone();
     //Pass up Tab Button Clicks
     let tab_button_clicked = Callback::from(move |tab_clicked|{
         handle_changetab_cloned.emit(tab_clicked);
     });
+    let home_button_clicked = Callback::from(move |()|{
+        handle_homebutton.emit(Tabs::About);
+    });
     html! {
     <div class = {tab_bar_style}>
-        <h1>{"AlxDoesStuff"}</h1>
+        <HomeButtonComponent handle_onclick = {home_button_clicked.clone()}/>
         <div class = {tab_wrapper_style}>
             <TabButtonComponent button_text = {String::from("About")} button_tab = {Tabs::About} handle_onclick = {tab_button_clicked.clone()} current_tab = {current_tab.clone()}/> //About Tab Button
             <TabButtonComponent button_text = {String::from("Socials")} button_tab = {Tabs::Socials} handle_onclick = {tab_button_clicked.clone()} current_tab = {current_tab.clone()}/> //Socials Tab Button

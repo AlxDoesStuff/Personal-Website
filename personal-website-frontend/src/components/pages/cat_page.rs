@@ -1,13 +1,30 @@
+use stylist::yew::styled_component;
 use yew::prelude::*;
 use yew_router::prelude::*;
-use crate::components::atoms::imprint_link_component::ImprintLinkComponent;
+use stylist::style;
 use crate::components::molecules::tab_bar_component::TabBarComponent;
 use crate::Route;
 use crate::Tabs;
 
 
-#[function_component]
+#[styled_component]
 pub fn CatPage() -> Html {
+    let page_style = style!(
+        r#"
+            height: 100svh;
+            width: 100svw;
+            font-size: 28px;
+            font-family: 'Roboto Mono';
+        "#
+    ).unwrap();
+    let horizontal_aligner_style = style!(
+        r#"
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            flex-direction: row;
+        "#
+    ).unwrap(); 
     //Tab Routing: see main_page.rs
     let navigator = use_navigator().unwrap();
     let tab_state = use_state(||Tabs::About);
@@ -23,10 +40,13 @@ pub fn CatPage() -> Html {
     });
     //Html
     html! {
-        <div>
+        <div class = {page_style}>
+            <div class = {horizontal_aligner_style.clone()}>
             <TabBarComponent handle_changetab = {tab_changed.clone()} current_tab = {None}/> //Tab Bar
+            </div>
+            <div class = {horizontal_aligner_style.clone()}>
             <p>{"Cat page!!!1"}</p>
-            <ImprintLinkComponent/>
+            </div>
         </div>
     }
 }
